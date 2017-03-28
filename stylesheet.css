@@ -1,0 +1,90 @@
+/*
+  Color Palette (selected as advised in material.io guidelines)
+
+  Primary: (Deep Purple)
+    50  | #ede7f6
+    100 | #d1c4e9
+    200 | #b39ddb
+    300 | #9575cd
+    400 | #7e57c2
+    500 | #673ab7
+    600 | #5e35b1
+    700 | #512da8
+    800 | #4527a0
+    900 | #311b92
+*/
+
+body {
+  background-color: #ede7f6;
+}
+
+.feature-view {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.github-img {
+  background: url(images/github_symbol/GitHub-Mark-64px.png);
+  background-size: 1.5em auto;
+  height: auto;
+  margin: .25em 0;
+  padding-bottom: 1.5em;
+  width: 1.5em;  /*size of the actual image*/
+}
+
+.github-img:hover {
+  background: 
+  linear-gradient(
+      rgba(237,231,246, 0.45), 
+      rgba(237,231,246, 0.45)
+    ),
+    url(images/github_symbol/GitHub-Mark-Light-64px.png);
+  background-size: 1.5em auto;
+  border-radius: 1.5em;
+}
+
+.instruction-nav {
+  background-color: #673ab7;
+  color: #ede7f6;
+  justify-content: center;
+}
+
+.landing-content {
+  padding-top: 10vh;
+  height: 80vh;
+}
+
+.show-code {
+  background-color: #5e35b1;
+  border-radius: 4px;
+  box-shadow: 4px 4px #4527a0;
+  padding: 1em;
+  width: 10vw;
+}
+
+.show-code:active {
+  box-shadow: 0 0 0;
+}
+
+.title-nav {
+  background-color: #512da8;
+  color: #d1c4e9;
+  font-size: 2em;
+  height: auto;
+  justify-content: center;
+  padding: .5em;
+}
+
+.title-content {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.title-text {
+  margin-top: .25em;
+}

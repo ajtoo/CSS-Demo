@@ -1,0 +1,39 @@
+/*
+  Color Palette (selected as advised in material.io guidelines)
+  50  | #eceff1
+  100 | #cfd8dc
+  200 | #b0bec5
+  300 | #90a4ae
+  400 | #78909c
+  500 | #607d8b
+  600 | #546e7a
+  700 | #455a64
+  800 | #37474f
+  900 | #263238
+*/
+.container-row {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.nav {
+  align-items: center;
+  background-color: #607d8b;
+  height: 10vh;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.nav-top-fixed {
+  box-shadow: 0 2px 5px rgba(0,0,0,.32);
+  position: fixed;
+  -webkit-transition: height .4s, -webkit-transform .4s;
+  transition: height .4s, transform .4s;
+}
+
+.nav-bottom {
+  position: relative;
+  box-shadow: 0 -2px 5px rgba(0,0,0,.32);
+}
