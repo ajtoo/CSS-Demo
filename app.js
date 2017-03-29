@@ -9,7 +9,6 @@ else if (window.attachEvent) window.attachEvent("onload", autorun);
 else window.onload = autorun;
 
 function fixNavOnScroll(nav) {
-  var prevScrollPos = 0
   var navTopFixed = document.querySelector(".nav-top-fixed");
   window.addEventListener("scroll", (e) => {
     let lastScrollPos = window.scrollY;
@@ -34,7 +33,6 @@ function fixNavOnScroll(nav) {
     } else if(lastScrollPos <= swapWaypoint && nav.className.includes("nav-top-fixed")) {
       nav.classList.remove("nav-top-fixed");
     }
-    prevScrollPos = lastScrollPos;
   });
 }
 

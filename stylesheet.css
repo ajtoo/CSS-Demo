@@ -19,11 +19,16 @@ body {
 }
 
 .feature-view {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
+  justify-content: center;
+  padding-top: 20vh;
+}
+
+.feature-label {
+  font-size: 2em;
 }
 
 .github-img {
