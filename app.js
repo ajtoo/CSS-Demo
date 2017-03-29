@@ -12,30 +12,21 @@ else window.onload = autorun;
 //takes height in vh (recommend +5vh from height of item)
 function fixNavOnScroll(nav) {
   var prevScrollPos = 0
-  let navTopFixed = document.querySelector(".nav-top-fixed");
-  let fixNavHeight = navTopFixed.offsetHeight;
+  var navTopFixed = document.querySelector(".nav-top-fixed");
   window.addEventListener("scroll", (e) => {
     let lastScrollPos = window.scrollY;
     let vh = getViewHeight();
-    let vhOne = vh * .01;
+    let vhOne = vh * .01; //taking advantage of navbar being 10vh
     let swapWaypoint = vh - nav.offsetHeight;
 
-    let transitionHalfWaypoint = vh - (nav.offsetHeight + fixNavHeight + vhOne);
-    let transitionInWaypoint = transitionHalfWaypoint  + vhOne;
-
-    if(lastScrollPos > transitionHalfWaypoint && lastScrollPos < swapWaypoint && navTopFixed.style.height != 0 && navTopFixed.style.height != "5vh") {
-      console.log("first collapse")
-        if(navTopFixed !== null) {
-          navTopFixed.style.height = "5vh";
-        }
-    } else if (lastScrollPos > swapWaypoint - fixNavHeight* 0.5) {
-      console.log("second collapse", lastScrollPos, swapWaypoint - fixNavHeight * .75);
-      navTopFixed.style.height = "0";
-    } else if(lastScrollPos < transitionInWaypoint && lastScrollPos < prevScrollPos) {
-      console.log("expand")
-        if(navTopFixed !== null) {
-          navTopFixed.style.height = "10vh";
-        }
+    if(lastScrollPos < swapWaypoint) {
+      let newHeight = swapWaypoint - lastScrollPos;
+      if(newHeight < 0) {
+        newHeight = 0;
+      } else if(newHeight > vh * .1) {    //taking advantage of navbar being 10vh
+        newHeight = vh * .1;
+      }   
+      navTopFixed.style.height = newHeight + "px";
     }
 
     if(lastScrollPos > swapWaypoint &&  !nav.className.includes("nav-top-fixed")) {

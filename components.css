@@ -29,8 +29,8 @@
 .nav-top-fixed {
   box-shadow: 0 2px 5px rgba(0,0,0,.32);
   position: fixed;
-  -webkit-transition: height .4s, -webkit-transform .4s;
-  transition: height .4s, transform .4s;
+  -webkit-transition: height .1s, -webkit-transform .1s;
+  transition: height .1s, transform .1s;
 }
 
 .nav-bottom {
