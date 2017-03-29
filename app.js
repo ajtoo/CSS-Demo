@@ -24,6 +24,7 @@ function fixNavOnScroll(nav) {
           newHeight = vh * .1;
         }   
         navTopFixed.style.height = newHeight + "px";
+        nav.style.marginBottom = "-" + (nav.offsetHeight - newHeight) + "px";
       }
     }
 
