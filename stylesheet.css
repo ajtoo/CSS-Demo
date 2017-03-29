@@ -71,6 +71,7 @@ body {
 
 .title-nav {
   background-color: #512da8;
+  /*background-color: transparent;*/
   color: #d1c4e9;
   font-size: 2em;
   height: auto;
