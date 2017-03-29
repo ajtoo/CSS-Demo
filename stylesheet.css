@@ -23,7 +23,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 80vh;
+  height: 100vh;
 }
 
 .github-img {
@@ -52,6 +52,17 @@ body {
   justify-content: center;
 }
 
+.instructions {
+  font-size: 3em;
+  margin: 1em;
+  text-align: center;
+}
+
+.instructions-text {
+  margin-top: .5em;
+  font-size: .5em;
+}
+
 .landing-content {
   padding-top: 10vh;
   height: 80vh;
@@ -71,11 +82,11 @@ body {
 
 .title-nav {
   background-color: #512da8;
-  /*background-color: transparent;*/
   color: #d1c4e9;
   font-size: 2em;
   height: auto;
   justify-content: center;
+  max-height: 20vh;
   padding: .5em;
 }
 
