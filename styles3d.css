@@ -1,0 +1,44 @@
+.carousel {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  perspective: 1000px;
+  position: absolute;
+  transform-style: preserve-3d;
+  width: 100%;
+}
+
+.carousel > figure {
+  transition: transform 1s;
+}
+
+.carousel figure:nth-child(1) {
+  transform: rotateY(0deg) translateZ(25vh);
+}
+
+.carousel figure:nth-child(2) {
+  transform: rotateY(90deg) translateZ(25vh);
+}
+
+.carousel figure:nth-child(3) {
+  transform: rotateY(180deg) translateZ(25vh);
+}
+
+.carousel figure:nth-child(4) {
+  transform: rotateY(270deg) translateZ(25vh);
+}
+
+.carousel-card {
+  display: flex;
+  height: 50%;
+  justify-content: center;
+  position: absolute;
+  width: auto;
+}
+
+.carousel-container {
+  position: relative;
+  height: 50vh;
+  width: 100%;
+}

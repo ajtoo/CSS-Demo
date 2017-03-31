@@ -9,10 +9,12 @@
   <meta name="keywords" content="keywords,here">
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet"> 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/styles/atom-one-dark.min.css">
   <link rel="stylesheet" href="reset.css" type="text/css">
   <link rel="stylesheet" href="base.css" type="text/css">
   <link rel="stylesheet" href="components.css" type="text/css">
   <link rel="stylesheet" href="stylesheet.css" type="text/css">
+  <link rel="stylesheet" href="styles3d.css" type="text/css">
   </head>
   <body>
     <nav class="nav nav-top-fixed instruction-nav">
@@ -28,7 +30,7 @@
         <p class="instructions-text">click the buttons to show code </p>
         <p class="instructions-text">(this one contains code for the navbars above and below)</p>
       </label>
-      <button class="show-code">Show Code</button>
+      <button class="show-code" id="nav-code-button">Show Code</button>
     </section>
     <nav class="nav nav-bottom title-nav">
       <header class="title-content">
@@ -36,7 +38,7 @@
         <a class="github-img" href="https://github.com/ajtoo/CSS-Demo"></a>
       </header>
     </nav>
-    <section class="feature-view" style="justify-content: flex-end">
+    <section class="feature-view">
       <h1 class="feature-label">Flip Cards</h1>
       <article class="flip-cards">
         <div class="flip-container">
@@ -68,10 +70,275 @@
             </div>
         </div>
       </article>
-      <button class="show-code">Show Code</button>
+      <button class="show-code" id="flip-code-button">Show Code</button>
     </section>
     <section class="feature-view">
+      <h1 class="feature-label">3D</h1>
+      <article class="carousel-container">
+        <div class="carousel">
+          <figure class="carousel-card sym-on-carousel">
+            <img src="./images/water_bending_emblem.png"/>
+          </figure>
+          <figure class="carousel-card sym-on-carousel">
+            <img src="./images/earth_bending_emblem.png"/>
+          </figure>
+          <figure class="carousel-card sym-on-carousel">
+            <img src="./images/fire_bending_emblem.png"/>
+          </figure>
+          <figure class="carousel-card sym-on-carousel">
+            <img src="./images/air_bending_emblem.png"/>
+          </figure>
+        </div>
+      </article>
+      <div class="carousel-controls">
+        <button><i class="material-icons">&#xE314;</i></button>
+        <button><i class="material-icons">&#xE315;</i></button>
+      </div>
+      <button class="show-code" id="carousel-code-button">Show Code</button>
     </section>
+    <section class="feature-view">
+      <h1 class="feature-label">Rotation</h1>
+      <article class="container-row rotate-container">
+        <img class="flip-content-img rotate-img rotate-x" src="./images/air_bending_emblem.png"/>
+        <img class="flip-content-img rotate-img rotate-y" src="./images/air_bending_emblem.png"/>
+        <img class="flip-content-img rotate-img rotate-z" src="./images/air_bending_emblem.png"/>
+      </article>
+    <button class="show-code" id="rotate-code-button">Show Code</button>
+    </section>
+    <section class="feature-view" style="justify-content:flex-start;">
+      <h1 class="feature-label">Grid System (inspired by bootstrap)</h1>
+      <div class="container-row demo-row">
+        <div class="med-col-4 demo-col">.med-col-4</div>
+        <div class="med-col-4 demo-col">.med-col-4</div>
+        <div class="med-col-4 demo-col">.med-col-4</div>
+      </div>
+      <div class="container-row demo-row">
+        <div class="med-col-3 demo-col">.med-col-3</div>
+        <div class="med-col-3 demo-col">.med-col-3</div>
+        <div class="med-col-6 demo-col">.med-col-6</div>
+      </div>
+      <div class="container-row demo-row">
+        <div class="med-col-3 demo-col">.med-col-3</div>
+        <div class="med-col-3 demo-col">.med-col-3</div>
+        <div class="med-col-3 demo-col">.med-col-3</div>
+        <div class="med-col-3 demo-col">.med-col-3</div>
+      </div>
+      <div class="container-row demo-row">
+        <div class="med-col-8 demo-col">.med-col-8</div>
+        <div class="med-col-4 demo-col">.med-col-4</div>
+      </div>
+    </section>
+
+    <!-- MODALS -->
+    <div class="modal" id="attach-nav-code">
+      <article class="modal-content code-modal-snippet">
+        <pre>
+          <code class="javascript">
+function fixNavOnScroll(nav) {
+  let navTopFixed = document.querySelector(".nav-top-fixed");
+  let navTopInitialHeight = 0;
+  if(navTopFixed) 
+    navTopInitialHeight = navTopFixed.offsetHeight; 
+  window.addEventListener("scroll", (e) => {
+    let lastScrollPos = window.scrollY;
+    let vh = getViewHeight();
+    let swapWaypoint = vh - nav.offsetHeight;
+    
+    if(navTopFixed) {
+      if(lastScrollPos < swapWaypoint) {
+        let newHeight = swapWaypoint - lastScrollPos;
+        if(newHeight <= 0) {
+          newHeight = 0;
+        } else if(newHeight > navTopInitialHeight) {
+          newHeight = navTopInitialHeight;
+        }   
+        navTopFixed.style.height = newHeight + "px";
+        nav.style.marginBottom = "-" + (nav.offsetHeight - newHeight) + "px";
+      }
+    }
+
+    if(lastScrollPos > swapWaypoint &&  !nav.className.includes("nav-top-fixed")) {
+      nav.classList.add("nav-top-fixed");
+      nav.classList.remove("nav-bottom");
+    } else if(lastScrollPos <= swapWaypoint && nav.className.includes("nav-top-fixed")) {
+      nav.classList.remove("nav-top-fixed");
+    }
+  });
+}
+          </code>
+        </pre>
+      </article>
+    </div>
+    <div class="modal" id="flip-code">
+      <article class="modal-content code-modal-snippet">
+        <pre>
+          <code class="css">
+.flip-container {
+	perspective: 1000px;
+}
+
+.flipper {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+	position: relative;
+}
+
+.flip-container:hover .flipper-vertical{
+  position:relative;
+  transform: rotateX(180deg);
+}
+
+.vertical-front {
+  backface-visibility: hidden;
+	left: 0;
+	position: absolute;
+	top: 0;
+	transform: rotateX(0deg);
+}
+
+.vertical-back {
+  backface-visibility: hidden;
+	transform: rotateX(180deg);
+}
+          </code>
+        </pre>
+      </article>
+    </div>
+    <div class="modal" id="rotate-code">
+      <article class="modal-content code-modal-snippet">
+        <pre>
+          <code class="css">
+.rotate-x {
+  animation: x-rotate 4s infinite linear ;
+  perspective: 1000px;
+}
+
+@keyframes x-rotate {
+  0% {transform: rotateX(0);}
+  100% {transform: rotateX(360deg);}
+}
+          </code>
+        </pre>
+      </article>
+    </div>
+        <div class="modal" id="flip-code">
+      <article class="modal-content code-modal-snippet">
+        <pre>
+          <code class="css">
+.flip-container {
+	perspective: 1000px;
+}
+
+.flipper {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+	position: relative;
+}
+
+.flip-container:hover .flipper-vertical{
+  position:relative;
+  transform: rotateX(180deg);
+}
+
+.vertical-front {
+  backface-visibility: hidden;
+	left: 0;
+	position: absolute;
+	top: 0;
+	transform: rotateX(0deg);
+}
+
+.vertical-back {
+  backface-visibility: hidden;
+	transform: rotateX(180deg);
+}
+          </code>
+        </pre>
+      </article>
+    </div>
+    <div class="modal" id="carousel-code">
+      <article class="modal-content code-modal-snippet">
+        <pre>
+        <code class="css">
+.carousel {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  perspective: 1000px;
+  position: absolute;
+  transform-style: preserve-3d;
+  width: 100%;
+}
+
+.carousel > figure {
+  transition: transform 1s;
+}
+
+.carousel figure:nth-child(1) {
+  transform: rotateY(0deg) translateZ(25vh);
+}
+
+.carousel figure:nth-child(2) {
+  transform: rotateY(90deg) translateZ(25vh);
+}
+
+.carousel figure:nth-child(3) {
+  transform: rotateY(180deg) translateZ(25vh);
+}
+
+.carousel figure:nth-child(4) {
+  transform: rotateY(270deg) translateZ(25vh);
+}
+
+.carousel-card {
+  display: flex;
+  height: 50%;
+  justify-content: center;
+  position: absolute;
+  width: auto;
+}
+
+.carousel-container {
+  position: relative;
+  height: 50vh;
+  width: 100%;
+}
+          </code>
+          <code class="javascript">
+function rotateCarousel(carousel, direction) {
+  let numItems = carousel.children.length;
+  let rotationIncrement = 360/numItems;
+
+  for(let i = 0; i < numItems; ++i) {
+    if(direction === "right")
+      rotateCard(carousel.children[i], rotationIncrement , i);
+    else
+      rotateCard(carousel.children[i], rotationIncrement * -1, i);
+  }
+}
+
+function rotateCard(card, deg, order) {
+  if(card.style && card.style.transform) {
+    let newRotation = Number((/-?\d+/.exec(card.style.transform))) + deg;
+    console.log("newRotation: ", newRotation);
+    card.style.transform = `rotateY(${newRotation}deg) translateZ(25vh)`;
+  } else {
+    let initialRotation;
+    if(deg > 0) 
+      initialRotation = deg + deg * order;
+    else
+      initialRotation = deg + deg * order * -1;
+    console.log("initialRotation: ", initialRotation, deg);
+    card.style.transform = `rotateY(${initialRotation}deg) translateZ(25vh)`;
+  }
+}
+          </code>
+        </pre>
+      </article>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
     <script src="app.js" type="text/javascript"></script>
   </body>
 </html>
