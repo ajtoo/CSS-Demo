@@ -16,14 +16,98 @@
 
 body {
   background-color: #ede7f6;
+  height: auto;
 }
 
+img {
+  height: 100%;
+  width: auto;
+}
+
+.demo-row {
+  width: 100%;
+}
+
+.demo-col {
+  align-items: center;
+  display: flex;
+  background-color: #9575cd;
+  border: 1px solid #7e57c2;
+  border-radius: 8px;
+  height: 5vh;
+  justify-content: center;
+}
+
+.sym-on-carousel {
+  background-color: rgba(209, 196, 233, .8);
+  border: 1px solid #b39ddb;
+  padding: 1em;
+  border-radius: 32px;
+}
+
+.carousel-controls {
+  border: 1px solid #b39ddb;
+  border-radius: 8px;
+  margin-bottom:  1em;
+}
+
+.carousel-controls button i{
+  display: flex;
+  align-self: center;
+}
+
+.carousel-controls button:hover{
+  cursor: pointer;
+}
+
+.code-modal {
+  align-items: center;
+  background-color: #cfd8dc;
+  border-radius: 8px;
+  display: flex;
+  height: 30vh;
+  justify-content: center;
+  padding: 1em;
+  width: 40vw;
+}
+
+.code-modal-snippet {
+  background-color: rgb(40,44,52);
+  border-radius: 8px;
+  max-height: 50vh;
+  overflow-y:scroll;
+  padding: 0 1em;
+}
+
+.code-modal-snippet pre{
+  margin: -1em 0;
+}
+
+.flip-content-img {
+  width: auto;
+  height: 100%;
+}
 .feature-view {
+  align-items: center;
   display: flex;
   flex-direction: column;
+  height: 100vh;
   justify-content: center;
-  align-items: center;
-  height: 80vh;
+  padding: 20vh 2em 2em 2em;
+}
+
+.feature-label {
+  font-size: 2em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.flip-cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 2em;
+  width: 60vw;
 }
 
 .github-img {
@@ -52,30 +136,54 @@ body {
   justify-content: center;
 }
 
+.instructions {
+  font-size: 3em;
+  margin: 1em;
+  text-align: center;
+}
+
+.instructions-text {
+  margin-top: .5em;
+  font-size: .5em;
+}
+
 .landing-content {
   padding-top: 10vh;
   height: 80vh;
 }
 
+.rotate-container {
+  justify-content: space-around;
+  padding-bottom: 2em;
+  width: 75vw;
+}
+
+.rotate-img {
+  height: auto;
+  padding:.5em;
+  width: 15vw;
+}
+
 .show-code {
   background-color: #5e35b1;
   border-radius: 4px;
-  box-shadow: 4px 4px #4527a0;
+  box-shadow: 0px 5px #4527a0, 0 8px 4px rgba(0, 0, 0, .25);
   padding: 1em;
   width: 10vw;
 }
 
 .show-code:active {
-  box-shadow: 0 0 0;
+  box-shadow: 0 3px #311b92,  0 8px 4px rgba(0, 0, 0, .4);
+  transform: translateY(2px);
 }
 
 .title-nav {
   background-color: #512da8;
-  /*background-color: transparent;*/
   color: #d1c4e9;
   font-size: 2em;
   height: auto;
   justify-content: center;
+  max-height: 20vh;
   padding: .5em;
 }
 
