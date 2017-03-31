@@ -2,7 +2,7 @@
 
 ## Background
 
-This is a demo of some of my CSS skills and a place for me to experiment with new things (primarily 3D). Everything was built without libraries or frameworks using vanilla CSS/HTML/JS. Syntax highlighting for "show code" is provided by highlightjs.
+This is a demo of some of my CSS skills and a place for me to experiment with new things (primarily 3D). Everything was built without libraries or frameworks using vanilla CSS/HTML/JS. Syntax highlighting for "show code" is provided by highlight.js.
 
 ### Initial View
 ![](./images/landing.png)
@@ -12,7 +12,7 @@ This is a demo of some of my CSS skills and a place for me to experiment with ne
 
 ## Architecture and Technologies
 
-Vanilla CSS/HTML/JS
+Vanilla CSS/HTML/JS, highlight.js
 
 ## Bonus features
 
